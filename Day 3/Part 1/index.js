@@ -11,16 +11,13 @@ for (var y = 0; y < input.length; y++) {
   const line = input[y];
   for (var x = 0; x < line.length; x++) {
     const char = line[x];
-    console.log(`(${x}, ${y}): ${char} ${!isNaN(char)}`);
-    if (!isNaN(char)) {
+    if (!isNaN(parseInt(char))) {
       var numWidth;
-      for (numWidth = 1; !isNaN(line[x + numWidth]); numWidth++) {}
-      console.log(`${numWidth} ${line.substring(x, x + numWidth)}`);
+      for (numWidth = 1; !isNaN(parseInt(line[x + numWidth])); numWidth++) {}
       var valid = false;
-      for (var i = -1; i <= numWidth + 1 || valid; i++) {
-        for (var j = -1; j <= 2 || valid; j++) {
-          console.log(`(${ + i}, ${y + j}): ${getChar(x + i, y + j)}`)
-          const testChar = getChar(x + i, y + j);
+      for (var i = -1; i <= 1 && !valid; i++) {
+        for (var j = -1; j <= numWidth && !valid; j++) {
+          const testChar = getChar(x + j, y + i);
           if (isNaN(testChar) && testChar != '.') valid = true;
         }
       }
@@ -32,3 +29,4 @@ for (var y = 0; y < input.length; y++) {
     }
   }
 }
+console.log(sum);
