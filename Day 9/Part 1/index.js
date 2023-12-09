@@ -11,7 +11,6 @@ function differences(sequence, progress) {
 
 function extrapolate(progress) {
   var n = 0;
-  progress[0].push(0);
   for (var i = 1; i < progress.length; i++) n = parseInt(progress[i][progress[i].length - 1]) + n;
   return n;
 }
